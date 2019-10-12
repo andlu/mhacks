@@ -11,6 +11,7 @@ from mhacks.views.accountfunctions import file_upload, hash_function
 import spotipy
 import json
 import spotipy.util as util
+from youtube_auth.py import index, test_api_request, authorize, oauth2callback
 
 # change after authorizing web app to spotify 
 SPOTIPY_CLIENT_ID='your-spotify-client-id'
@@ -23,17 +24,18 @@ def read_playlist(username_in, initial_platform):
         return flask.redirect(flask.url_for('login'))
 
     if (initial_platform == 's'):
-        spotify_playlist()
+        show_spotify_tracks()
     elif (initial_platform == 'y'):
         youtube_playlist(platform_id, id_requested)
 
 
 # grab data from initial_platform to create playlist in destination platform 
-def spotify_playlist(): 
+
+    
+def show_spotify_tracks(results):
     sp = spotipy.Spotify(auth=token)
     sp.trace = False
-    
-    def show_tracks(results):
+
     for i, item in enumerate(results['items']):
         track = item['track']
         print("   %d %32.32s %s" % (i, track['artists'][0]['name'], track['name']))
@@ -80,4 +82,15 @@ def spotify_playlist():
             print("Can't get token for", username)
 
 def youtube_playlist(platform_id, id_requested): 
+    # authorization functions go here 
+    mhacks.app.add_url_rule('/', 'index', index)
+    mhacks.app.add_url_rule('/test', 'test_api_request', test_api_request)
+    mhacks.app.add_url_rule('/authorize', 'authorize', authorize)
+    mhacks.app.add_url_rule('/oauth2callback', 'oauth2callback', oauth2callback)
+
+    
+
+
+
+
 
