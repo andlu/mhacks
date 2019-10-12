@@ -5,6 +5,7 @@ CREATE TABLE users(
   PRIMARY KEY(username)
 );
 CREATE TABLE playlists(
+  playlistID INT,                         -- A unique number we create associated to the playlist
   username VARCHAR(20) NOT NULL,          -- Username of user who created playlist
   title VARCHAR(256) NOT NULL,            -- Title of playlist
   id VARCHAR(256) NOT NULL,               -- id of playlist on platform
@@ -24,8 +25,9 @@ CREATE TABLE songs{
 CREATE TABLE playListSongs(
   songID INT NOT NULL,                    -- The songID of the song based on the songs table
   username VARCHAR(20) NOT NULL,          -- Username of the user
-  playlist VARCHAR(256) NOT NULL,         -- The playlist where the song is from
-  PRIMARY KEY(songID, username, playlist),
+  databasePlaylistID INT NOT NULL,        -- The playlist id of where the song is from in our database
+  playlistID VARCHAR(256) NOT NULL,       -- The ID of the playlist from the platform
+  PRIMARY KEY(songID, databasePlaylistID),
   FOREIGN KEY (playlist) REFERENCES playlists(title) ON DELETE CASCADE,
   FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
 );
