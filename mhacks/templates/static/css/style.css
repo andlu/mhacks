@@ -218,6 +218,16 @@ p{
   border-radius: 10%;
 }
 
+#create-user .sign-up{
+
+  height: 30px;
+  width: 70px;
+  font-size: 15px;
+  border-radius: 10%;
+  margin-left: 100px;
+
+}
+
 /*Footer Section*/
 
 .social-icon{

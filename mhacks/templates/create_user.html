@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>insta485</title>
-	<link href="/static/css/style.css" rel="stylesheet" type="text/css">
+	<title>Create User</title>
+	<link href="static/css/style.css" rel="stylesheet" type="text/css">
+
+	<!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
-	<!-- Top navbar-->
-	<ul class="navbar">
-		<li>
-			<a href="/">
-				<img src="/static/images/logo.png" alt="logo" style="width:42px;height:42px;"><h1 style="display: inline;"> Insta485 </h1>
-			</a>
-		</li>
-		<li style="float: right;"><a href="/accounts/login/">login</a></li>
-	</ul>
-	<br>
-	<form action="" method="post" enctype="multipart/form-data">
- 		<label for="fullname">Name <input type="text" name="fullname"/>
- 		<br>
- 		<label for="username">Username <input type="text" name="username"/>
- 		<br>
- 		<label for="password">Password <input type="password" name="password"/>
- 		<br>
- 		<input type="submit" name="signup" value="sign up"/>
-	</form>
-	<p>Have an account? <a href="/accounts/login/" rel="stylesheet" type="text/css">Log in</a></p>
+
+	<section id="create-user" style="text-align: center">
+		<img class="sign-in-logo" src="static/css/images/logo.jpg" alt="logo">
+		<p>Already have an account? <a href="/accounts/login/">login here!</a></p>
+		
+		<br>
+		<form action="" method="post" enctype="multipart/form-data">
+
+			<p>Enter full name: </p>
+	 		<input type="text" name="fullname"/>
+	 		<br>
+
+	 		<p>Enter username: </p>
+	 		<input type="text" name="username"/>
+	 		<br>
+
+	 		<p>Enter password: </p>
+	 		<input type="password" name="password"/>
+	 		<br>
+	 		<br>
+
+	 		<input type="button" class="btn-outline-primary sign-up" name="sign-up" value="sign-up">
+
+		</form>
+	</section>
+
 </body>
 </html>
