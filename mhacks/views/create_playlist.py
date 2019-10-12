@@ -1,13 +1,9 @@
 """
-mhacks Create View.
-
-URLs include:
-/accounts/create/
 """
 import flask
 from mhacks.model import get_db
 import mhacks
-from mhacks.views.accountfunctions import file_upload, hash_function
+from mhacks.views.accountfunctions import hash_function
 import requests
 import spotipy
 import spotipy.util as util
@@ -19,11 +15,8 @@ export SPOTIPY_CLIENT_ID='your-spotify-client-id'
 export SPOTIPY_CLIENT_SECRET='your-spotify-client-secret'
 export SPOTIPY_REDIRECT_URI='your-app-redirect-url'
 
-@mhacks.app.route('/accounts/create/', methods=['GET', 'POST'])
-def create_playlist(username, id_requested, initial_platform, destination_platform):
-    if 'username' not in flask.session: 
-        return flask.redirect(flask.url_for('login'))
 
+def create_playlist(username, id_requested, initial_platform, destination_platform):
     # grab playlist from the requested username, id, initial platform and destination platform 
     playlist = get_db().cursor().execute('''SELECT * FROM playlists
                                         WHERE username=? AND id=? AND platform=?''', 

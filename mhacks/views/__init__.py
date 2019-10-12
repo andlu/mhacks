@@ -12,4 +12,4 @@ from mhacks.views.follower import show_follower
 from mhacks.views.following import show_following
 from mhacks.views.user import show_user
 from mhacks.views.post import show_post
-from mhacks.views.create_playlist import create_playlist
+from mhacks.views.home import home
