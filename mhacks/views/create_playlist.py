@@ -7,13 +7,13 @@ from mhacks.views.accountfunctions import hash_function
 import requests
 import spotipy
 import spotipy.util as util
-import google.oauth2.credentials
-import google_auth_oauthlib.flow
+#import google.oauth2.credentials
+#import google_auth_oauthlib.flow
 
 # change after authorizing web app to spotify 
-export SPOTIPY_CLIENT_ID='03b0cc705dd74be1a04dc7b3ae8751a5'
-export SPOTIPY_CLIENT_SECRET='48ff64efc61a49efb1358820d846aa0e'
-export SPOTIPY_REDIRECT_URI='your-app-redirect-url'
+SPOTIPY_CLIENT_ID='03b0cc705dd74be1a04dc7b3ae8751a5'
+SPOTIPY_CLIENT_SECRET='48ff64efc61a49efb1358820d846aa0e'
+SPOTIPY_REDIRECT_URI='https://mhacks-255703.appspot.com/'
 
 
 def create_playlist(username, id_requested, initial_platform, destination_platform):
@@ -33,9 +33,10 @@ def create_playlist(username, id_requested, initial_platform, destination_platfo
         if token:
             spotify_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
         else:
-            print "Can't get token for", username
-    else:  
-        youtube_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
+            print ("Can't get token for", username)
+    
+    # else:  
+    #     youtube_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
 
 
 # grab data from initial_platform to create playlist in destination platform 
