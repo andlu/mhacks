@@ -26,7 +26,7 @@ def create_user():
             flask.abort(409)
 
         if not check_password(input_password):
-            flask.abort(400)
+            flask.ab
 
         hashed_password = hash_function(input_password)
 
