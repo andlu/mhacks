@@ -18,3 +18,10 @@ app.config.from_envvar('mhacks', silent=True)
 # going to tell pylint and pycodestyle to ignore this coding style violation.
 import mhacks.views  # noqa: E402  pylint: disable=wrong-import-position
 import mhacks.model  # noqa: E402  pylint: disable=wrong-import-position
+
+# @app.route('/')
+# def hello():
+#     return "Hello World"
+
+# if __name__ == "__main__":
+#     app.run()
