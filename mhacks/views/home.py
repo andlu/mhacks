@@ -23,9 +23,9 @@ def home():
     if flask.request.method == 'POST':
     	playlistid = flask.request.form['convert-playlist'];
     	to_platform = ' ';
-    	if flask.request.form['convert-to-playlist'] == "convert-to-spotify":
+    	if flask.request.form['convert-to-type'] == "convert-to-spotify":
     		to_platform = 's'
-    	elif flask.request.form['convert-to-playlist'] == "convert-to-youtube":
+    	elif flask.request.form['convert-to-type'] == "convert-to-youtube":
     		to_platform = 'y'
 
     	table = get_db().cursor().execute(''' SELECT * FROM playlists
@@ -35,5 +35,29 @@ def home():
     	create_playlist(flask.session['username'], playlistid, initial_platform, to_platform)
 
     
+    playlists = get_db().cursor().execute(''' SELECT * FROM playlists
+                                      WHERE username=?''',
+                                      (input_username,)).fetchall()
     context = {}
+    context['playlists'] = []
+    for playlist in playlists:
+        temp = {}
+        temp['title'] = playlist['title']
+
+        songs = get_db().cursor().execute(''' SELECT * FROM playListSongs
+                                      WHERE username=? AND databasePlaylistID=?''',
+                                      (input_username, playlist['playlistID'],)).fetchall()
+        songTemp = []
+        for song in songs:
+            specific_song = get_db().cursor().execute(''' SELECT * FROM songs
+                                      WHERE songID=? ''',
+                                      (song['songID'],)).fetchone()
+            songTemp2 = {}
+            songTemp2['title'] = specific_song['title']
+            songTemp2['artist'] = specific_song['artist']
+            songTemp.append(songTemp2)
+
+        temp['songs'] = songTemp
+        context['playlists'].append(temp)
+
     return flask.render_template("createPlaylist.html", **context)
