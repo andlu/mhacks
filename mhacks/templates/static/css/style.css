@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body{
   font-family: "Montserrat";
   text-align: center;
@@ -14,6 +19,43 @@ p{
   color: #8f8f8f;
 }
 
+#header{
+  background-image: url('images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding:0 20px;
+
+}
+
+#header h1{
+  font-size: 100px;
+  line-height:1.2;
+  color: #fff;
+  font-family: 'Baloo', cursive;
+
+}
+
+#header .button{
+  font-size: 18px;
+  text-decoration: none;
+  color: #fff;
+  border: #926239 1px solid;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+
+}
+
+#header .button:hover{
+  background: #1E90FF;
+  color: #fff;
+}
 
 /*Headings*/
 .big-heading{
