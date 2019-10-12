@@ -9,6 +9,8 @@ from mhacks.model import get_db
 import mhacks
 from mhacks.views.accountfunctions import file_upload, hash_function
 import spotipy
+import spotipy.util as util
+
 # change after authorizing web app to spotify 
 export SPOTIPY_CLIENT_ID='your-spotify-client-id'
 export SPOTIPY_CLIENT_SECRET='your-spotify-client-secret'
