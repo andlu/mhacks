@@ -16,7 +16,7 @@ spotify = oauth.remote_app(
     # Change the scope to match whatever it us you need
     # list of scopes can be found in the url below
     # https://developer.spotify.com/web-api/using-scopes/
-    request_token_params={'scope': 'playlist-read-collaborative playlist-modify-private playlist-modify-public playlist-read-private'},
+    request_token_params={'scope': 'playlist-read-collaborative playlist-modify-private playlist-read-private'},
     base_url='https://accounts.spotify.com',
     request_token_url=None,
     access_token_url='/api/token',
