@@ -8,8 +8,11 @@ import flask
 from mhacks.model import get_db
 import mhacks
 from mhacks.views.accountfunctions import file_upload, hash_function
+import requests
 import spotipy
 import spotipy.util as util
+import google.oauth2.credentials
+import google_auth_oauthlib.flow
 
 # change after authorizing web app to spotify 
 export SPOTIPY_CLIENT_ID='your-spotify-client-id'
@@ -38,11 +41,6 @@ def create_playlist(username, id_requested, initial_platform, destination_platfo
             spotify_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
         else:
             print "Can't get token for", username
-
-    else if (destination_platform == 'a'):
-        apple_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
-    else if (destination_platform == 'g'): 
-        google_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
     else:  
         youtube_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
 
@@ -65,12 +63,19 @@ def spotify_playlist(platformUsername, ourPlaylistID, platformPlayListID, playli
                                         (songID)).fetchone()
         track = search(q=song['songname']+song['artist']+sond['album'], type='track')
         user_playlist_add_tracks(platformUsername, platformPlayListID, track, position=i)
-    
-
-def apple_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle): 
-
-
-def google_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle): 
 
 
 def youtube_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle): 
+    flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
+            'client_secret.json',
+            scope=['https://www.googleapis.com/auth/youtubepartner'])
+
+    flow.redirect_uri = 'https://www.example.com/oauth2callback' # change redirect to actual redirect link 
+
+    authorization_url, state = flow.authorization_url(
+        # Enable offline access so that you can refresh an access token without
+        # re-prompting the user for permission. Recommended for web server apps.
+        access_type='offline',
+        state=sample_passthrough_value, 
+        # Enable incremental authorization. Recommended as a best practice.
+        include_granted_scopes='true')
