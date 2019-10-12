@@ -11,8 +11,8 @@ import google.oauth2.credentials
 import google_auth_oauthlib.flow
 
 # change after authorizing web app to spotify 
-export SPOTIPY_CLIENT_ID='your-spotify-client-id'
-export SPOTIPY_CLIENT_SECRET='your-spotify-client-secret'
+export SPOTIPY_CLIENT_ID='03b0cc705dd74be1a04dc7b3ae8751a5'
+export SPOTIPY_CLIENT_SECRET='48ff64efc61a49efb1358820d846aa0e'
 export SPOTIPY_REDIRECT_URI='your-app-redirect-url'
 
 
