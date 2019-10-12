@@ -4,76 +4,19 @@
 }
 
 body{
-  font-family: "Montserrat";
+  font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
 }
 
 h1,h2,h3{
 
-  font-family: "Montserrat";
+  font-family: 'Playfair Display', serif;
   font-weight: 900;
 }
 
 
 p{
   color: #8f8f8f;
-}
-
-#header{
-  background-image: url('images/background.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding:0 20px;
-
-}
-
-#header h1{
-  font-size: 100px;
-  line-height:1.2;
-  color: #fff;
-  font-family: 'Baloo', cursive;
-
-}
-
-#header .button{
-  font-size: 18px;
-  text-decoration: none;
-  color: #fff;
-  border: #926239 1px solid;
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-
-}
-
-#header .button:hover{
-  background: #1E90FF;
-  color: #fff;
-}
-
-/*Headings*/
-.big-heading{
-  font-family: 'Baloo', cursive;
-  font-size: 3.5rem;
-  line-height: 1.5;
-  font-weight: 900;
-}
-
-.section-heading{
-  font-size: 3rem;
-  line-height: 1.5;
-}
-
-
-/*Containers*/
-.container-fluid{
-  padding: 7% 15%;
 }
 
 /*Sections*/
@@ -88,12 +31,99 @@ p{
   background-color: #fff;
 }
 
+/*Containers*/
+.title-container{
+  padding: 0% 4% 5%;
+}
+.container-fluid{
+  padding: 7% 15%;
+}
+
+
+/*header, 1st section*/
+#header{
+  background-image: url('images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 100px;
+
+}
+
+#title h1{
+  font-size: 50px;
+  line-height:1.2;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  margin-top: 200px
+
+
+}
+#title .love-music{
+  text-align: right;
+}
+
+#title .love-syncphonic{
+  font-size: 70px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: right;
+}
+
+#title .button{
+  font-size: 23px;
+  text-decoration: none;
+  color: #40E0D0;
+  border: #40E0D0 1px solid;
+  padding: 10px 25px;
+  border-radius: 10px;
+  margin-top: 300px;
+  margin-left: 1200px;
+
+}
+
+#title .button:hover{
+  color: #fff;
+  border-color: #fff;
+}
+
+#title{
+  width: 1400px;
+  height: 670px;
+  margin-right: 50px;
+  -webkit-animation: fadein 4s;
+}
+#title .container-fluid{
+  padding: 3% 15% 7%;
+  text-align: left;
+}
+
+
+/*Headings*/
+.big-heading{
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  line-height: 1.5;
+  font-weight: 900;
+}
+
+.section-heading{
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
 
 
 /*Navigation Bar*/
 
 .navbar{
   padding: 0 0 4.5rem;
+  width: 1300px;
 }
 
 .navbar-brand{
@@ -124,22 +154,6 @@ p{
   margin-right: 5px;
 }
 
-
-/*Title Section*/
-#title .container-fluid{
-  padding: 3% 15% 7%;
-  text-align: left;
-}
-
-/*title image*/
-
-.title-image{
-  width: 60%;
-  transform: rotate(25deg);
-  position: absolute;
-  right: 20%;
-}
-
 /*features Section*/
 #features{
   background-color: #fff;
@@ -148,9 +162,9 @@ p{
 
 }
 
-/*.feature-box{
+.feature-box{
   padding: 5%;
-}*/
+}
 
 .feature-title{
   font-size: 1.5rem;
@@ -183,6 +197,11 @@ p{
   color: #1E90FF;
 }
 
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
 
 @media(max-width: 1028px){
