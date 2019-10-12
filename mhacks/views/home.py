@@ -20,6 +20,8 @@ import spotipy.util as util
 def home():
     if 'username' not in flask.session: 
         return flask.redirect(flask.url_for('login'))
+        
+    input_username = flask.session['username']
     if flask.request.method == 'POST':
     	playlistid = flask.request.form['convert-playlist'];
     	to_platform = ' ';

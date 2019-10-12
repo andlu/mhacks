@@ -20,8 +20,8 @@ case $1 in
     file="var/mhacks.sqlite3"
     if [ ! -f "$file" ]
     then
-      # echo "+ mkdir -p var/uploads"
-      # mkdir -p var/uploads
+      echo "+ mkdir -p var/uploads"
+      mkdir -p var/uploads
       echo "+ sqlite3 var/mhacks.sqlite3 < sql/schema.sql"
       sqlite3 var/mhacks.sqlite3 < sql/schema.sql
       echo "+ sqlite3 var/mhacks.sqlite3 < sql/data.sql"
