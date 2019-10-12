@@ -7,7 +7,6 @@ URLs include:
 import flask
 import mhacks
 from mhacks.model import get_db
-from mhacks.views.accountfunctions import follow_friend, unfollow_friend
 
 
 @mhacks.app.route('/u/<user_url_slug>/followers/', methods=['GET', 'POST'])

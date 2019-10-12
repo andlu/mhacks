@@ -9,7 +9,6 @@ import flask
 import arrow
 from mhacks.model import get_db
 import mhacks
-from mhacks.views.accountfunctions import check_unlike
 
 
 @mhacks.app.route('/p/<postid_slug>/', methods=['GET', 'POST'])
