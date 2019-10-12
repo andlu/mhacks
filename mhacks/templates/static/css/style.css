@@ -190,11 +190,7 @@ p{
   text-align: center;
 }
 
-.sign-in-logo{
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-}
+
 
 /* sign in */
 
@@ -205,12 +201,19 @@ p{
   border-radius: 10%;
 }
 
+.sign-in-logo{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
 #sing-in .sign-in-sign-up{
   height: 40px;
   width: 100px;
   font-size: 15px;
 }
 
+/* password */
 #password .update-password{
   height: 40px;
   width: 70px;
@@ -218,6 +221,7 @@ p{
   border-radius: 10%;
 }
 
+/* create user */
 #create-user .sign-up{
 
   height: 30px;

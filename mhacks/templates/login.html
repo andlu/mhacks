@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Sign In</title>
+	<title>Log In</title>
 	<link href="static/css/style.css" rel="stylesheet" type="text/css">
 
 	<!-- Google Fonts -->
@@ -21,20 +21,22 @@
 	<section id="sign-in" style="text-align: center">
 
 			<img class="sign-in-logo" src="static/css/images/logo.jpg" alt="logo">
-			<br>
 			<form action="" method="post" enctype="multipart/form-data">
-		  		<input type="text" name="username" placeholder="username"/>
+				<p>Enter your username: </p>
+		  		<input type="text" name="username">
+		  		<br>
+
+		  		<p>Enter your password: </p>
+		  		<input type="password" name="password"L>
 		  		<br>
 		  		<br>
 
-		  		<input type="password" name="password" placeholder="password"/>
-		  		<br>
-		  		<br>
 		  		<input type="button" class="btn-outline-primary login" value="login">
+
 		  		<br>
 		  		<br>
 			</form>
-			<p>Don't have an account? <a href="/accounts/create/"> <button type="button" class="btn btn-outline-primary sign-in-sign-up"> Sign Up!</button></p></a>
+			<p>Don't have an account? <a href="/accounts/create/"> Sign Up here!</a></p>
 
 	</section>
 
