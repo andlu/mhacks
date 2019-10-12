@@ -20,64 +20,55 @@ def create_playlist(username, id_requested, initial_platform, destination_platfo
         return flask.redirect(flask.url_for('login'))
 
     # grab playlist from the requested username, id, initial platform and destination platform 
-    playlist = get_db().cursor().execute('''SELECT * FROM posts
+    playlist = get_db().cursor().execute('''SELECT * FROM playlists
                                         WHERE username=? AND id=? AND platform=?''', 
                                         (username,id_requested,initial_platform,)).fetchone()
 
     platformUsername = playlist['platformUsername'] 
+    ourPlaylistID = playlist['playlistID']
+    platformPlayListID = playlist['id']
+    playlistTitle = playlist['title']
 
     if (destination_platform == 's'):
         scope = "playlist-modify-private"
         token = util.prompt_for_user_token(platformUsername,scope,client_id=SPOTIPY_CLIENT_ID,client_secret=SPOTIPY_CLIENT_SECRET,redirect_uri=SPOTIPY_REDIRECT_URI)
         if token:
-            spotify_playlist(platformUsername, id_requested)
+            spotify_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
         else:
             print "Can't get token for", username
 
-        spotify_playlist(platform_id, id_requested)
     else if (destination_platform == 'a'):
-        apple_playlist(platform_id, id_requested)
+        apple_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
     else if (destination_platform == 'g'): 
-        google_playlist(platform_id, id_requested)
+        google_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
     else:  
-        youtube_playlist(platform_id, id_requested)
+        youtube_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
 
 
 # grab data from initial_platform to create playlist in destination platform 
-def spotify_playlist(platformUsername, id_requested): 
+def spotify_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle): 
     sp = spotipy.Spotify(auth=token)
+    sp.trace = False
     
-    tracks = get_db().cursor(), execute('''SELECT * FROM playListSongs
-                                        WHERE username=? AND playlist=?''', 
-                                        (platformUsername, ))
+    tracks = get_db().cursor().execute('''SELECT * FROM playListSongs
+                                        WHERE username=? AND playlistID=?''', 
+                                        (platformUsername, ourPlaylistID)).fetchall()
+    
+    user_playlist_create(platformUsername, playlistTitle, public=False, description="")
+
+    for i in tracks:
+        songID = tracks['songID']
+        song = get_db().cursor().execute('''SELECT * FROM songs
+                                         WHERE songID=?''', 
+                                        (songID)).fetchone()
+        track = search(q=song['songname']+song['artist']+sond['album'], type='track')
+        user_playlist_add_tracks(platformUsername, platformPlayListID, track, position=i)
     
 
-def apple_playlist(platform_id, id_requested): 
+def apple_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle): 
 
 
-def google_playlist(platform_id, id_requested): 
+def google_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle): 
 
 
-def youtube_playlist(platform_id, id_requested): 
-
-
-# JSON response to creating a new playlist
-{"collaborative":false, 
-"description":null,
-"external_urls":{"spotify":"http://open.spotify.com/user/thelinmichael/playlist/7d2D2S200NyUE5KYs80PwO"},
-"followers":{"href":null,"total":0},
-"href":"https://api.spotify.com/v1/users/thelinmichael/playlists/7d2D2S200NyUE5KYs80PwO",
-"id":"7d2D2S200NyUE5KYs80PwO",
-"images":[],
-"name":"A New Playlist",
-"owner":{"external_urls":{"spotify":"http://open.spotify.com/user/thelinmichael"},
-"href":"https://api.spotify.com/v1/users/thelinmichael",
-"id":"thelinmichael",
-"type":"user",
-"uri":"spotify:user:thelinmichael"},
-"public":false,
-"snapshot_id":"s0o3TSuYnRLl2jch+oA4OEbKwq/fNxhGBkSPnvhZdmWjNV0q3uCAWuGIhEx8SHIx",
-"tracks":{"href":"https://api.spotify.com/v1/users/thelinmichael/playlists/7d2D2S200NyUE5KYs80PwO/tracks",
-"items":[],"limit":100,"next":null,"offset":0,"previous":null,"total":0},
-"type":"playlist",
-"uri":"spotify:user:thelinmichael:playlist:7d2D2S200NyUE5KYs80PwO"}
+def youtube_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle): 
