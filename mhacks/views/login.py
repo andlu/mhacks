@@ -13,7 +13,7 @@ from mhacks.views.accountfunctions import check_login
 def login():
     """Log in user."""
     if 'username' in flask.session:
-        return flask.redirect(flask.url_for('show_index'))
+        return flask.redirect(flask.url_for('home'))
 
     if flask.request.method == 'POST':
         username = flask.request.form['username']

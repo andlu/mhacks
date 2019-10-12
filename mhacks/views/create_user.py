@@ -7,7 +7,7 @@ URLs include:
 import flask
 from mhacks.model import get_db
 import mhacks
-from mhacks.views.accountfunctions import file_upload, hash_function
+from mhacks.views.accountfunctions import hash_function
 
 
 @mhacks.app.route('/accounts/create/', methods=['GET', 'POST'])
@@ -20,7 +20,6 @@ def create_user():
         input_username = flask.request.form['username']
         input_password = flask.request.form['password']
         input_name = flask.request.form['fullname']
-        input_email = flask.request.form['email']
 
         # Abort Checks
         if not check_username(input_username):
@@ -31,21 +30,14 @@ def create_user():
 
         hashed_password = hash_function(input_password)
 
-        # FILE PORTION
-        file = flask.request.files["file"]
-        hashed_filename = file_upload(file)
-
         # Insert into database
         get_db().cursor().execute(''' INSERT INTO users
-                                  (username, fullname, email,
-                                  filename, password)
-                                  VALUES (?, ?, ?, ?, ?) ''',
+                                  (username, fullname, password)
+                                  VALUES (?, ?, ?) ''',
                                   (input_username, input_name,
-                                   input_email,
-                                   hashed_filename,
                                    hashed_password))
         flask.session['username'] = input_username
-        return flask.redirect(flask.url_for('show_index'))
+        return flask.redirect(flask.url_for('home'))
 
     return flask.render_template('create.html')
 
