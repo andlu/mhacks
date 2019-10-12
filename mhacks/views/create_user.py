@@ -39,7 +39,7 @@ def create_user():
         flask.session['username'] = input_username
         return flask.redirect(flask.url_for('home'))
 
-    return flask.render_template('create.html')
+    return flask.render_template('create_user.html')
 
 
 def check_username(input_username):

@@ -42,6 +42,7 @@ def home():
     context['playlists'] = []
     for playlist in playlists:
         temp = {}
+        temp['playlistID'] = playlist['playlistID']
         temp['title'] = playlist['title']
 
         songs = get_db().cursor().execute(''' SELECT * FROM playListSongs

@@ -8,10 +8,10 @@ set -Eeuo pipefail
 # Call mhacksdb create if not database file exists
 file="var/mhacks.sqlite3"
 
-# if [ ! -f "$file" ]
-# then
-# 	./bin/mhacksdb create
-# fi
+if [ ! -f "$file" ]
+then
+	./bin/mhacksdb create
+fi
 
 # Set FLASK_DEBUG, FLASK_APP and mhacks_SETTINGS environment variables
 export FLASK_DEBUG=True
