@@ -11,7 +11,7 @@ from mhacks.views.accountfunctions import file_upload, hash_function
 
 
 @mhacks.app.route('/accounts/create/', methods=['GET', 'POST'])
-def create():
+def create_user():
     """Create a User."""
     if 'username' in flask.session:
         return flask.redirect(flask.url_for('edit'))
