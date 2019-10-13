@@ -1,6 +1,5 @@
 """
 mhacks Edit View.
-
 URLs include:
 /choose/
 """
