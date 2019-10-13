@@ -11,7 +11,7 @@
 
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="static/css/style.css" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
 
 
   
@@ -32,7 +32,7 @@
 
       <!-- Nav Bar -->
       <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href=""><i class="fas fa-music"></i><i> Syncphonic</i></a>
+          <img class="index-logo" src="{{ url_for('static', filename='css/images/index.png') }}" alt="logo">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
@@ -67,44 +67,118 @@
 
 
     <!-- sign up and log in -->
-  <section class="white-section" id="User-Authen">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="feature-box col-lg-12">
-          <a href="/accounts/create/"><button type="button" name= "sign-up" value="sign-up" class="btn btn-dark btn-lg sign-up"></i> Sign Up!</button></a>
-          <a href="/accounts/login/"><button type="button" name="log-in" value="log-in" class="btn btn-dark btn-lg log-in"></i> Log In</button></a>
+    <section class="white-section">
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div id=container>
+                    <p>SHARE</p>
+                    <div id=flip>
+                    <div><div>FRIENDS</div></div>
+                    <div><div>FAMILY</div></div>
+                    <div><div>EVERYONE</div></div>
+                    </div>
+                    <p>MUSIC</p>
+                </div> 
+            </div>
+
+            <div class="col-lg-4">
+                <div id=container>
+                <p>CONVERT</p>
+                    <div id=flip>
+                    <div><div>SPOTIFY</div></div>
+                    <div><div>YOUTUBE</div></div>
+                    <div><div>GOOGLE</div></div>
+                    </div>
+                <p>PLAYLISTS</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div id=container>
+                <p>Make</p>
+                    <div id=flip>
+                    <div><div>WORK</div></div>
+                    <div><div>lIFESTYLE</div></div>
+                    <div><div>EVERYTHING</div></div>
+                    </div>
+                <p>AWESOME</p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <section class="colored-section" id="User-Authen">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="feature-box col-lg-6">
+                    <h2>Can't wait to start your journey?</h2>
+                    <a href="/accounts/createuser/"><button type="button" name= "sign-up" value="sign-up" class="btn btn-dark btn-lg sign-up"></i> Sign Up!</button></a>
+                </div>
+                <div class="feature-box col-lg-6">
+                    <h2>Already have an account?</h2>
+                    <a href="/accounts/login/"><button type="button" name="log-in" value="log-in" class="btn btn-dark btn-lg log-in"></i> Log In</button></a>
+                </div>
+            </div>
 
         </div>
 
-      </div>
-    </div>
-  </section>
+    </section>
 
 
     <!-- Features -->
 
-  <section class="colored-section">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="feature-box col-lg-6">
-          <i class="fas fa-check-circle fa-4x qualities"></i>
-          <h3 class="feature-title">Easy to use.</h3>
-          <p>All you need is a couple seconds</p>
-        </div>
+    <section class="white-section">
+        <div class="container-fluid">
+        <div class="row">
+            <div class="feature-box col-lg-4">
+            <i class="fas fa-check-circle fa-4x qualities"></i>
+            <h3 class="feature-title">Easy to use.</h3>
+            <p>We convert and store your favorite playlist!</p>
+            </div>
 
-        <div class="feature-box col-lg-6">
-          <i class="fas fa-bullseye fa-4x qualities"></i>
-          <h3 class="feature-title">Music lover's Best friend</h3>
-          <p>We love Syncphonic</p>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div class="feature-box col-lg-4">
+            <i class="fas fa-bullseye fa-4x qualities"></i>
+            <h3 class="feature-title">Share with Friends</h3>
+            <p>Share your favorite playlist with your friends and family!</p>
+            </div>
 
+            <div class="feature-box col-lg-4">
+                <i class="fas fa-bullseye fa-4x qualities"></i>
+                <h3 class="feature-title">It's FREE</h3>
+                <p>What's better than free pizza? A free playlist converter!</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <section class="colored-section" id="youtube">		
+        <div class="container-fluid-youtube">		
+            <h2>Check out these hottest music videos!</h2>		
+            <div class="row youtubeVideo">		
+                <div class="col-lg-6">		
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/q0hyYWKXF0Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		
+                </div>		
+                <div class="col-lg-6">		
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jTMzLbz9_r0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		
+                </div>		
+            </div>		
+        </div>		
+    </section>		
+    
   <!-- Footer -->
 
   <footer class="white-section" id="footer">
     <div class="container-fluid">
+        <div class="footer-syncphonic">
+            <div class="footer-background-color">
+                <h1>SYNCPHONIC</h1>
+            </div>
+        </div>
       <i class="social-icon fab fa-facebook-f"></i>
       <i class="social-icon fab fa-twitter"></i>
       <i class="social-icon fab fa-instagram"></i>

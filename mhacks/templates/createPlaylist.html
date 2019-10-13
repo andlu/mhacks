@@ -11,7 +11,7 @@
 
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="static/css/styles.css">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
 
   
   <!-- Bootstrap Scripts -->
@@ -27,13 +27,13 @@
 
 <body>
 
-  <header id="header">
+  <section id="create-playlist-header">
 
-      <div class="container-fluid">
+      <div class="create-playlist-header">
 
         <!-- Nav Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href=""><i class="fas fa-music"></i><i> Syncphonic</i></a>
+            <img class="index-logo-header" src="{{ url_for('static', filename='css/images/index.png') }}" alt="logo">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,8 +52,25 @@
         </nav>
 
       </div>
-  </header>
+    </section>
 
+  <section class="convert-from">
+    <h1>Convert my playlist from </h1>
+    <div class="row">
+      <div class="col-lg-6">
+        <form action="" method="post" enctype="multipart/form-data">
+          <input type="text" name="Spotify Username" placeholder="Username">
+          <input type="submit" name="Spotify" value="Spotify" class="btn btn-info btn-lg convert-from-Spotify"/>
+        </form>
+      </div>
+      <div class="col-lg-6">
+        <form action="" method="post" enctype="multipart/form-data">
+          <input type="text" name="Youtube Username" placeholder="Username">
+          <input type="submit" name="Youtube" value="Youtube" class="btn btn-info btn-lg convert-from-YouTube"/>
+        </form>
+      </div>
+    </div>
+  </section>
 
     <!-- playlist  -->
   {% for playlist in playlists %}
@@ -69,6 +86,7 @@
               <td class="playlist-song" href="">{{ song['title'] }}</td>
               <td class="playlist-song-artist"> {{ song['artist'] }}</td>
             </tr>
+            {% endfor %}
           </table>
           
 
@@ -83,25 +101,24 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <button type="button" name="convert-playlist" value="convert-playlist" class="btn btn-dark btn-lg log-in"></i> Convert My Playlist!</button>
+          <form action="" method="post" enctype="multipart/form-data">
+            <input type="submit" name="convert-playlist" value="convert-playlist" class="btn btn-dark btn-lg log-in"/>
+          </form>
       </div>
     </div>
 
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3">
-          <button type="button" name="convert-to-type" value="convert-to-spotify" class="btn btn-info btn-lg convert-to-Spotify"></i> Spotify</button>
+          <form action="" method="post" enctype="multipart/form-data">
+            <input type="submit" name="Convert to Spotify" value="{{ playlist['playlistID'] }}" class="btn btn-info btn-lg convert-to-Spotify"/>
+          </form>
         </div>
         <div class="col-lg-3">
-          <button type="button" name="convert-to-type" value="convert-to-youtube" class="btn btn-info btn-lg convert-to-YouTube"></i> YouTube</button>
+          <form action="" method="post" enctype="multipart/form-data">
+            <input type="submit" name="Convert to Youtube" value="{{ playlist['playlistID'] }}" class="btn btn-info btn-lg convert-to-YouTube"/>
+          </form>
         </div>
-        <div class="col-lg-3">
-          <button type="button" name="convert-to-type" value="convert-to-apple" class="btn btn-info btn-lg convert-to-Apple-Music"></i> Apple Music</button>
-        </div>
-        <div class="col-lg-3">
-          <button type="button" name="convert-to-type" value="convert-to-google" class="btn btn-info btn-lg convert-to-Google-Play"></i> Google Play Music</button>
-        </div>
-
       </div>
     </div>
   </section>
