@@ -7,3 +7,4 @@ from mhacks.views.edit import edit
 from mhacks.views.delete import delete
 from mhacks.views.password import password
 from mhacks.views.home import home
+from mhacks.views.choose import choose

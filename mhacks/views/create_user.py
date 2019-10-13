@@ -10,11 +10,11 @@ import mhacks
 from mhacks.views.accountfunctions import hash_function
 
 
-@mhacks.app.route('/accounts/create/', methods=['GET', 'POST'])
+@mhacks.app.route('/accounts/createuser/', methods=['GET', 'POST'])
 def create_user():
     """Create a User."""
     if 'username' in flask.session:
-        return flask.redirect(flask.url_for('edit'))
+        return flask.redirect(flask.url_for('home'))
 
     if flask.request.method == 'POST':
         input_username = flask.request.form['username']
@@ -39,7 +39,7 @@ def create_user():
         flask.session['username'] = input_username
         return flask.redirect(flask.url_for('home'))
 
-    return flask.render_template('create.html')
+    return flask.render_template('create_user.html')
 
 
 def check_username(input_username):

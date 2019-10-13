@@ -15,13 +15,13 @@ CREATE TABLE playlists(
   PRIMARY KEY(id, platform),
   FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
 );
-CREATE TABLE songs{
+CREATE TABLE songs(
   songID INT,                             -- A unique number we create associated to the song 
   songname VARCHAR(256) NOT NULL,         -- Name of the song
   artist VARCHAR(256) NOT NULL,           -- Artist of the song
   album VARCHAR(256) NOT NULL,            -- Album of the song
   PRIMARY KEY(songID)
-};
+);
 CREATE TABLE playListSongs(
   songID INT NOT NULL,                    -- The songID of the song based on the songs table
   username VARCHAR(20) NOT NULL,          -- Username of the user
