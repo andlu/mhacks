@@ -13,7 +13,8 @@ import spotipy.util as util
 # change after authorizing web app to spotify 
 SPOTIPY_CLIENT_ID='03b0cc705dd74be1a04dc7b3ae8751a5'
 SPOTIPY_CLIENT_SECRET='48ff64efc61a49efb1358820d846aa0e'
-SPOTIPY_REDIRECT_URI='https://mhacks-255703.appspot.com/'
+SPOTIPY_REDIRECT_URI_SERVER='https://mhacks-255703.appspot.com/'
+SPOTIPY_REDIRECT_URI_LOCAL='localhost:5000'
 
 
 def create_playlist(username, id_requested, initial_platform, destination_platform):
@@ -29,14 +30,13 @@ def create_playlist(username, id_requested, initial_platform, destination_platfo
 
     if (destination_platform == 's'):
         scope = "playlist-modify-private"
-        token = util.prompt_for_user_token(platformUsername,scope,client_id=SPOTIPY_CLIENT_ID,client_secret=SPOTIPY_CLIENT_SECRET,redirect_uri=SPOTIPY_REDIRECT_URI)
+        token = util.prompt_for_user_token(platformUsername,scope,client_id=SPOTIPY_CLIENT_ID,client_secret=SPOTIPY_CLIENT_SECRET,redirect_uri=SPOTIPY_REDIRECT_URI_LOCAL)
         if token:
             spotify_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
         else:
             print ("Can't get token for", username)
-    
-    # else:  
-    #     youtube_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
+    else:  
+        youtube_playlist(platformUsername, ourPlaylistID, platformPlayListID, playlistTitle)
 
 
 # grab data from initial_platform to create playlist in destination platform 

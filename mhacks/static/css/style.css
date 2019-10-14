@@ -22,7 +22,7 @@ p{
 /*Sections*/
 
 .colored-section{
-  background-color: #87CEFA;
+  background-color: #ADD8E6;
   color: #fff;
 
 }
@@ -37,6 +37,10 @@ p{
 }
 .container-fluid{
   padding: 7% 15%;
+}
+
+.container-fluid-youtube{		
+  padding: 4% 8%;		
 }
 
 
@@ -64,16 +68,61 @@ p{
 
 
 }
+
+
+
 #title .love-music{
-  text-align: right;
+  text-align: center;
 }
 
 #title .love-syncphonic{
   font-size: 70px;
   margin-top: 50px;
   margin-bottom: 50px;
-  text-align: right;
+  text-align: center;
 }
+
+.footer-syncphonic {		
+  padding: 1vw;		
+  position: relative;		
+  top: 50%;		
+  left: 50%;		
+  text-align: center;		
+  transform: translate(-50%, -50%);		
+  margin-left: 90px;		
+}		
+.footer-background-color h1 {		
+  color: #000;		
+  font-family: 'Playfair Display', serif;		
+  font-size: 3vw;		
+  font-weight: bold;		
+  letter-spacing: 1vw;		
+  max-width: 700px;		
+  text-align: center;		
+  background: rgba(255, 253, 160, 1);		
+  background: -webkit-linear-gradient( left, #00ffff 0%, #97fba0 25%, #97b1fb 50%, #00ffff 100%) repeat;		
+  -webkit-background-clip: text;		
+  -ms-background-clip: text;		
+  -moz-background-clip: text;		
+  background-clip: text;		
+  -webkit-text-fill-color: transparent;		
+  -ms-text-fill-color: transparent;		
+  -moz-text-fill-color: transparent;		
+  text-fill-color: transparent;		
+  -webkit-animation-name: masked-animation;		
+  -webkit-animation-duration: 50s;		
+  -webkit-animation-iteration-count: infinite;		
+  -webkit-animation-timing-function: linear;		
+}		
+@-webkit-keyframes masked-animation {		
+  0% {		
+    background-position: 0 0;		
+  }		
+  100% {		
+    background-position: -8000px -3000px;		
+  }		
+}		
+
 
 #title .button{
   font-size: 23px;
@@ -83,7 +132,6 @@ p{
   padding: 10px 25px;
   border-radius: 10px;
   margin-top: 300px;
-  margin-left: 1200px;
 
 }
 
@@ -94,13 +142,30 @@ p{
 
 #title{
   width: 1400px;
-  height: 670px;
+  height: 870px;
   margin-right: 50px;
   -webkit-animation: fadein 4s;
 }
 #title .container-fluid{
   padding: 3% 15% 7%;
   text-align: left;
+}
+
+.sign-up{		
+	margin-left: 40px;		
+	margin-top: 20px;		
+}		
+.log-in{		
+	margin-left: 40px;		
+	margin-top: 20px;		
+}		
+
+#User-Authen{
+	background-image: url('images/sign-up.png');
+}
+
+#youtube {
+	background-image: url('images/youtube.png');
 }
 
 
@@ -141,7 +206,28 @@ p{
   font-size: 1.2rem;
   font-family: "Montserrat-Light";
 }
+.index-logo{
+  height: 140px;
+  width: 300px;
+  border-radius: 20%;
+  margin-top: 20px;
+}
 
+.youtubeVideo{		
+	margin-top: 30px;		
+	text-align: center;		
+}
+
+#create-playlist-header{		
+	background-image: url('images/sign-up.png');		
+	height: 150px;		
+}
+
+.index-logo-header{		
+	height: 140px;		
+  	width: 300px;		
+	margin-left: 40px;		
+}		
 
 
 /*Convert Buttons*/
@@ -163,7 +249,7 @@ p{
 }
 
 .feature-box{
-  padding: 5%;
+  padding: 10px;
 }
 
 .feature-title{
@@ -190,12 +276,6 @@ p{
   text-align: center;
 }
 
-.sign-in-logo{
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-}
-
 /* sign in */
 
 #sign-in .login{
@@ -205,17 +285,35 @@ p{
   border-radius: 10%;
 }
 
+.sign-in-logo{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
 #sing-in .sign-in-sign-up{
   height: 40px;
   width: 100px;
   font-size: 15px;
 }
 
+/* password */
 #password .update-password{
   height: 40px;
   width: 70px;
   font-size: 15px;
   border-radius: 10%;
+}
+
+/* create user */
+#create-user .sign-up{
+
+  height: 30px;
+  width: 70px;
+  font-size: 15px;
+  border-radius: 10%;
+  margin-left: 100px;
+
 }
 
 /*Footer Section*/
@@ -245,3 +343,57 @@ p{
 
   }
 }
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+#container {
+  color:#999;
+  text-transform: uppercase;
+  text-align:center;
+  font-size:36px;
+  font-weight:bold;
+  padding-top:100px;  
+  padding-bottom: 100px;
+  position:relative;
+  width:100%;
+  display:block;
+}
+
+#flip {
+  height:50px;
+  overflow:hidden;
+}
+
+#flip > div > div {
+  color:#fff;
+  padding:4px 12px;
+  height:45px;
+  margin-bottom:45px;
+  display:inline-block;
+}
+
+#flip div:first-child {
+  animation: show 5s linear infinite;
+}
+
+#flip div div {
+  background:#42c58a;
+}
+#flip div:first-child div {
+  background:#4ec7f3;
+}
+#flip div:last-child div {
+  background:#DC143C;
+}
+
+@keyframes show {
+  0% {margin-top:-270px;}
+  5% {margin-top:-180px;}
+  33% {margin-top:-180px;}
+  38% {margin-top:-90px;}
+  66% {margin-top:-90px;}
+  71% {margin-top:0px;}
+  99.99% {margin-top:0px;}
+  100% {margin-top:-270px;}
+}
+
